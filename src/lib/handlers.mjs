@@ -58,7 +58,6 @@ export function logout(req, res) {
 // MAIN PAGES ------------------------------------------------------------------------------------
 export function home(req, res) {
     if (isLoggedIn(req, res)) {
-        //persistence.run();
         res.render('home');
     } else {
         res.render('login', { layout: null, redirect: '/' });

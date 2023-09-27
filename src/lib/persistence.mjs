@@ -70,17 +70,6 @@ export function addMessageContent(messageName, content) {
     .catch(err => console.err(err));
 }
 
-export async function run() {
-  try {
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    await client.close();
-  }
-}
-
 export async function checkLogin(email, password) {
     const cursor = users.find({
         email: email
@@ -107,7 +96,6 @@ export async function seedLogin() {
 }
 
 export default {
-    run,
     addList,
     getLists,
     addAddress,
